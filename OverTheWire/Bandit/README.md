@@ -125,12 +125,12 @@ cat /tmp/john3/password.txt
 24-25 -
 >mkdir /tmp/bf_b24 && cd /tmp/bf_b24
 
-# Generate all 10,000 combinations into a single payload buffer
+Generate all 10,000 combinations into a single payload buffer
 for pin in {0000..9999}; do
   echo "<bandit24_password> $pin"
 done > wordlist.txt
 
-# Pipe the dictionary directly into the daemon port
+Pipe the dictionary directly into the daemon port
 nc localhost 30002 < wordlist.txt | grep -v "Wrong"
 
 25-26 -
@@ -164,13 +164,13 @@ tag dereferencing
 git show secret
 
 31-32 -
-# Check repository instructions
+Check repository instructions
 >cat README.md
 
-# Create the requested file
+Create the requested file
 echo "May I come in?" > key.txt
 
-# Bypass the existing .gitignore constraint
+Bypass the existing .gitignore constraint
 git add -f key.txt
 git commit -m "Add authentication token"
 git push origin master
